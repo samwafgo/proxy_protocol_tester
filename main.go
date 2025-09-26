@@ -50,6 +50,11 @@ type Config struct {
 
 func main() {
 
+	// 检查是否是服务器模式
+	if len(os.Args) > 1 && os.Args[1] == "server" {
+		runTestServer()
+		return
+	}
 	// 如果有命令行参数，使用命令行模式
 	if len(os.Args) > 1 {
 		config := parseFlags()
